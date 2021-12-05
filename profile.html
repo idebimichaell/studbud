@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+   <header>
+    <div class="logo">
+        :SB
+    </div>
+    
+        <div class="nav">
+            <ul class="nav-items">
+                <li>
+                    <p>Hi User,</p>
+                </li>
+                <li>
+                    <img src="images/u_img.png" class="disp" alt="user"/>
+                </li>
+                <li>
+                        
+                        <a href="#"><img src="images/logout.png" class="disp" alt="logout"/>Logout</a>
+                  
+                </li>
+            </ul>
+        </div>
+    
+   </header>
+   
+    <div class="chat">
+        <div class="chat-content">
+            <div class="chat-left">
+                <div class="left-heading">
+                    <h2>Study Buddy</h2>
+                </div>
+                <ul class="stud">
+                    <li><a href="chat.html">Chat Study Buddy</a></li>
+                    <li><a class="active" href="profile.html">Profile</a></li>
+                </ul>
+               
+            </div>
+            <div class="chat-right">
+                <div class="contact-head">
+                    <h1><strong>User Information</strong></h1>                
+                </div>
+                <hr>
+                <form action="#">
+                    
+                   <div class="first">
+
+                       <div class="first-head">
+                           <h3>Profile</h3>
+                       </div>
+
+                       <div class="first-details">
+                        <div class="fill">
+                            <label for="name">Name</label>
+                            <input type="text" class="entry" placeholder="Surname first"/>
+                        </div>
+    
+                        <div class="fill">
+                            <label for="username">Username</label>
+                            <input type="text" class="entry" placeholder="Enter username"/>
+                        </div>
+    
+                        <div class="fill">
+                            <label for="img">Upload Profile Picture</label>
+                            <input type="file" class="btn" accept="image/png, image/jpeg"/>
+                        </div>
+    
+                        <br>
+    
+                        <div class="fill">
+                            <input type="submit" class="btn" value="Update Profile">
+                        </div>
+                       </div>
+
+                   </div>
+                    <hr>
+                        <div class="first-head">
+                            <h3>Password</h3>
+                        </div>
+                        <div class="first-details">
+                            <div class="fill">
+                                <label for="password">Old Password</label>
+                                <input type="password" class="entry" placeholder="old password"/>
+                            </div>
+
+                            <div class="fill">
+                                <label for="password">New Password</label>
+                                <input type="password" class="entry" placeholder="New password"/>
+                            </div>
+
+                            <div class="fill">
+                                <label for="password">Confirm New Password</label>
+                                <input type="password" class="entry" placeholder="Confirm New password"/>
+                            </div>
+
+                            <br>
+    
+                            <div class="fill">
+                                <input type="submit" class="btn" value="Change Password">
+                            </div>
+                        </div>
+                   
+
+                </form>
+              
+    
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

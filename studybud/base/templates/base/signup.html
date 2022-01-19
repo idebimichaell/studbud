@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
-       
+{% extends 'main.html' %}
+
+{% block content %}
+    {% load static %}   
     <div class="container">
         <div class="left">
-            <img class="image" src="images/img_dwn.png" alt="hi"/>
+            <img class="image" src="{% static 'images/img_dwn.png' %}" alt="hi"/>
         </div>
         <div class="right">
            
@@ -41,7 +34,7 @@
 
                         <div class="form-group">
                             <input type="submit" class="buttons" value="Signup"> <br>
-                            <p class="option">Already have an account? <a class="link" href="index.html">Sign In</a></p>
+                            <p class="option">Already have an account? <a class="link" href="{% url 'index' %}">Sign In</a></p>
                         </div>
                    
                     </div>
@@ -52,6 +45,4 @@
     </div>
     
     
-    
-</body>
-</html>
+{% endblock content %}

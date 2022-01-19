@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    {% include 'header.html' %}
+    {% load static %}
+    <div class="content">
+        <div class="content-head">
+            <h1><img src="{% static 'images/course.png' %}" class="cos" alt="user"/>Course Outline</h1>
+        </div>
+        
+            <div class="content-body">
+                
+                <div class="course-head">
+                    <h3><img src="{% static 'images/enter_course.png' %}" class="disp" alt="course"/>{{course.name}}</h3>
+                </div>
+                {% for outline in outlines %}
+                <div>
+                    <ul class="course">
+                        <li class="topic"><a href="{% url 'chat' outline.id %}"><img src="{% static 'images/enter_course.png' %}" class="disp" alt="course"/><em>{{outline}}</em></a></li>
+                        <li>
+                            <ul class="effect">
+                                <li><a href="{% url 'updatetopic' outline.id %}">Edit <img src="{% static 'images/edit.png' %}" class="dips"  alt="user"/></a></li>
+                                <li><a href="{% url 'deletetopic' outline.id %}">Delete <img src="{% static 'images/delete.png' %}" class="dips" alt="user"/></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>          
+                {% endfor %} 
+                <!---->
+
+                <br>
+                <form method="POST" action="">  
+                    {% csrf_token %}
+                    <div class="entry">
+                       <input type="text" class="enven" name="topic" placeholder="Enter Topic"> 
+                        <input type="submit" value="Add Topic" class="btn"/>
+                    </div>
+                </form>
+            </div>
+        
+    </div>
+    
+{% endblock content %}

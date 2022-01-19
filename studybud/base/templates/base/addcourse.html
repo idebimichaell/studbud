@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    {% include 'header.html' %}
+    {% load static %}
+    <div class="content">
+        <div class="content-head">
+            <h1><img src="{% static 'images/course.png' %}" class="cos" alt="user"/>Courses</h1>
+        </div>
+        
+            
+            <div class="content-body">
+                {% for course in courses %}
+                <ul class="course">
+                    <li class="topic"><a href="{% url 'outline' course.id %}"><strong>{{course.name}}</strong></a></li>
+                    <li>
+                        <ul class="effect">
+                            <li><a href="{% url 'editcourse' course.id %}">Edit <img src="{% static 'images/edit.png' %}" class="dips"  alt="user"/></a></li>
+                            <li><a href="{% url 'deletecourse' course.id %}">Delete <img src="{% static 'images/delete.png' %}" class="dips" alt="user"/></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                {% endfor %}
+                <br>
+                <div class="entry">
+                <form method="POST" action="">
+                   {% csrf_token  %}
+                   <input type="text" class="enven" name="course" placeholder="Enter Course here">
+                   <!--{{ form.as_p }}-->
+                    <input type="submit" value="Add Course" class="btn"/>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+{% endblock content %}

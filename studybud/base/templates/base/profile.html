@@ -1,36 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
+{% extends 'main.html' %}
 
-   <header>
-    <div class="logo">
-        :SB
-    </div>
-    
-        <div class="nav">
-            <ul class="nav-items">
-                <li>
-                    <p>Hi User,</p>
-                </li>
-                <li>
-                    <img src="images/u_img.png" class="disp" alt="user"/>
-                </li>
-                <li>
-                        
-                        <a href="#"><img src="images/logout.png" class="disp" alt="logout"/>Logout</a>
-                  
-                </li>
-            </ul>
-        </div>
-    
-   </header>
+{% block content %}
+    {% include 'header.html' %}
    
     <div class="chat">
         <div class="chat-content">
@@ -39,7 +10,7 @@
                     <h2>Study Buddy</h2>
                 </div>
                 <ul class="stud">
-                    <li><a href="chat.html">Chat Study Buddy</a></li>
+                    <li><a href="{% url 'addcourse' %}">Back to Courses</a></li>
                     <li><a class="active" href="profile.html">Profile</a></li>
                 </ul>
                
@@ -58,19 +29,10 @@
                        </div>
 
                        <div class="first-details">
-                        <div class="fill">
-                            <label for="name">Name</label>
-                            <input type="text" class="entry" placeholder="Surname first"/>
-                        </div>
-    
+                    
                         <div class="fill">
                             <label for="username">Username</label>
                             <input type="text" class="entry" placeholder="Enter username"/>
-                        </div>
-    
-                        <div class="fill">
-                            <label for="img">Upload Profile Picture</label>
-                            <input type="file" class="btn" accept="image/png, image/jpeg"/>
                         </div>
     
                         <br>
@@ -115,6 +77,5 @@
             </div>
         </div>
     </div>
-    
-</body>
-</html>
+
+{% endblock content %}

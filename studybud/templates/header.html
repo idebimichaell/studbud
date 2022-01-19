@@ -1,0 +1,26 @@
+
+<header>
+    {% load static %}
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/style.css' %}">
+    <div class="logo">
+        <a href="{% url 'addcourse' %}">:SB</a>
+    </div>
+        
+        <div class="nav">
+            <ul class="nav-items">
+                <a href="{% url 'profile' %}"><li>
+                    <p>Hi {{user}},</p>
+                </li>
+                <li>
+                    <img src="{% static 'images/user_img.svg' %}" class="disp" alt="user"/>
+                </li></a>
+                <li>
+                        
+                        <a href="{% url 'logout' %}"><img src="{% static 'images/logout.png' %}" class="disp" alt="logout"/>Logout</a>
+                  
+                </li>
+            </ul>
+        </div>
+    
+   </header>
+   

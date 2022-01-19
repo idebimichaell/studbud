@@ -1,0 +1,104 @@
+{% extends 'main.html' %}
+
+{% block content %}
+   {% include 'header.html' %}
+    {% load static %}
+    <div class="chat">
+        <div class="chat-content">
+            <div class="chat-left">
+                <div class="left-heading"> 
+                    <h2>Study Buddy</h2>
+                </div>
+                <ul class="stud">
+                    <li><a class="active" href="chat.html">Chat Study Buddy</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+                <p><strong><em>List of Commands</em></strong></p>
+                <ul class="loc">
+                    
+                    <li><strong>Videos</strong> - for videos
+                    </li>
+                    <li><strong>Pdfs</strong> - for pdfs</li>
+                </ul>
+            </div>
+            <div class="chat-right">
+                <div class="right-heading">
+                    <h2><strong>Topic: </strong><em>{{topic.courseOutline}}</em></h2>
+                </div>
+                
+                    <div class="chatface">
+                        
+                        <div class="msg">
+                            <div class="bot">
+                                <img src="{% static 'images/u_img.png' %}" class="disp" alt="bot_img"/>
+                                <p>
+                                    Hi there, I am your study buddy. Please enter command
+                                    of link you'll like to generate
+                                </p>
+                            </div>
+                            <br>
+                            {% if commands is not None %}
+                            <br>
+                            <div class="user">
+                                <p>
+                                    {{commands}}
+                                </p>
+                                <img src="{% static 'images/u_img.png' %}" class="disp" alt="bot_img"/>
+                            </div>
+                            
+                            <br>
+                            {% else  %}
+                                
+                            {% endif %}
+                        </div>    
+                        <div class="msg">
+                            {% if commands == 'pdfs' or commands == 'Pdfs' %}
+                                {% for link in pdf_links %}      
+                                    <div class="bot">
+                                        <img src="{% static 'images/u_img.png' %}" class="disp" alt="bot_img"/>
+                                        <p>
+                                            <a href="{{link}}">{{link}}</a>  
+                                        </p>
+                    
+                                    </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                {% endfor %}    
+                                <br>
+                            {% elif commands == 'Videos' or commands == 'videos' %}    
+                                {% for link in vid_links %}      
+                                    <div class="bot">
+                                        <img src="{% static 'images/u_img.png' %}" class="disp" alt="bot_img"/>
+                                        <p>
+                                            <a href="{{link}}">{{link}}</a>  
+                                        </p>
+                    
+                                    </div>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                {% endfor %} 
+                                <br>
+                            {% endif %}
+                        </div>
+    
+                        <form method="GET" action=""> 
+                            {% csrf_token %}
+                            <div class="key">
+                                <input type="text" class="pad" placeholder="Type command" name="command">
+                                <input type="submit" value="send" class="btn"/>
+                            </div>
+                        </form>
+                  
+                    </div>
+            </div>
+            
+        </div>
+    </div>
+    
+{% endblock content %}

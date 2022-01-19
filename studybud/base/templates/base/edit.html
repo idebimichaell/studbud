@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    {% include 'header.html' %}
+    {% load static %}
+    <div class="content">
+        <div class="content-head">
+            <h1><img src="{% static 'images/course.png' %}" class="cos" alt="user"/>Edit {{obj}}</h1>
+        </div>
+        
+            <div class="content-body">
+
+                <form method="POST" action="./?next={{request.META.HTTP_REFERER}}">  
+                    {% csrf_token %}
+                    <div class="entry">
+                       <input type="text" class="enven" name="item" placeholder="Edit"> 
+                        <input type="submit" value="Edit" class="btn"/>
+                    </div>
+                </form>
+            </div>
+        
+    </div>
+    
+{% endblock content %}
